@@ -1,7 +1,7 @@
 function encrypt(plaintext){
-    let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N"];
+    
     let ciphertext = "";
+    let plaintext = document.getElementById("textbox_id").value;
     for(let i=0; i < plaintext.length(); i++){
         if(plaintext.charCodeAt(i) >= 65 && plaintext.charCodeAt(i) <= 90){
             ciphertext += arr2[arr1.indexOf(plaintext.charAt(i))];
@@ -14,7 +14,10 @@ function encrypt(plaintext){
     return ciphertext
 }
 
-function decrypt(){
+function decrypt(ciphertext){
+
+    let plaintext= "";
+    let ciphertext = document.getElementById("textbox_id").value;
     for(let i=0; i < ciphertext.length(); i++){
         if(ciphertext.charCodeAt(i) >= 65 && ciphertext.charCodeAt(i) <= 90){
             plaintext += arr1[arr2.indexOf(ciphertext.charAt(i))];
@@ -23,6 +26,16 @@ function decrypt(){
         }else{
             plaintext += ciphertext.charAt(i);
         }
-        return plaintext
+    }   
+    return plaintext
 }
-}
+
+let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N"];
+document.getElementById("btn").onclick=function(){
+	encrypt();
+	}
+	
+	document.getElementById("debtn").onclick=function(){
+	decrypt();
+	}
