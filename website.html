@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="script.js"></script>
     </head>
     <body>
@@ -15,17 +16,19 @@
                 <input type="submit">
             </form>
         </div>
-        <div id="">
+        <div>
             <p>Choose the type of encoding or decoding: </p> 
-            <input type="radio" id="monoalphabetic" name ="cipers" value="monoalphabetic">
+            <input type="radio" id="monoalphabetic" name="cipers" value="monoalphabetic" checked="true">
             <label for="monoalphabetic">Monoalphabetic</label>
-            <input type="radio" id="caesar" name ="cipers" value="caesar">
+			<input type="radio" id="atbash" name="cipers" value="atbash">
+            <label for="atbash">AtBash</label>
+            <input type="radio" id="caesar" name="cipers" value="caesar">
             <label for="caesar">Caesar</label>
-            <input type="radio" id="homophonic" name ="cipers" value="homophonic">
+            <input type="radio" id="homophonic" name="cipers" value="homophonic">
             <label for="homophonic">Homophonic Substitution</label>
-            <input type="radio" id="aes" name ="cipers" value="aes">
+            <input type="radio" id="aes" name="cipers" value="aes">
             <label for="aes">AES</label>
-            <input type="radio" id="rc4" name ="cipers" value="rc4">
+            <input type="radio" id="rc4" name="cipers" value="rc4">
             <label for="rc4">RC4</label><br>
         </div>
         <div id="">
@@ -40,7 +43,7 @@
         </div>
         <div id="">
             <label for="encrypted">Encrypted</label>
-            <p id="encrypted" style="border: 1px solid black;"></p>
+            <p id="encrypted1" style="border: 1px solid black;"></p>
             <label for="decrypted">Decrypted</label>
             <p id="decrypted" style="border: 1px solid black;"></p>
             <p>
