@@ -2,15 +2,14 @@ var inputPlaintext;
 var inputKey;
 var selected;
 var eod;
-
+var caesarNumber
 // TODO ADD MONO cipher 
 window.addEventListener("DOMContentLoaded", function () {
 	document.querySelector("#enbtn").addEventListener("click", function () {
 		selected = $('input[name="cipers"]:checked').val();
-		console.log(selected);
-		//const cipherChoise = document.getElementsByName("cipers").value;
 		if(document.getElementById("myfile").value == ""){
 			eod = "encrypt";
+			caesarNumber = document.getElementById("caesarNum").value;
 			inputPlaintext = document.getElementById("message").value
 			inputKey = document.getElementById("key").value;
 			main();
@@ -23,6 +22,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		const cipherChoise = document.getElementsByName("cipers").value;
 		if(document.getElementById("myfile").value == ""){
 			eod = "decrypt";
+			caesarNumber = document.getElementById("caesarNum").value;
 			inputPlaintext = document.getElementById("message").value;
 			inputKey = document.getElementById("key").value;
 			main();
@@ -32,7 +32,8 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 //CEASER
-function ROT25 (str) {
+function ROT1 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 121)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 89)))
     {
@@ -51,7 +52,8 @@ return string;
 }
 
 
-function ROT24 (str) {
+function ROT2 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 120)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 88)))
     {
@@ -70,7 +72,8 @@ return string;
 }
 
 
-function ROT23 (str) {
+function ROT3 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 119)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 87)))
     {
@@ -89,7 +92,8 @@ return string;
 }
 
 
-function ROT22 (str) {
+function ROT4 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 118)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 86)))
     {
@@ -108,7 +112,8 @@ return string;
 }
 
 
-function ROT21 (str) {
+function ROT5 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 117)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 85)))
     {
@@ -127,7 +132,8 @@ return string;
 }
 
 
-function ROT20 (str) {
+function ROT6 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 116)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 84)))
     {
@@ -146,7 +152,8 @@ return string;
 }
 
 
-function ROT19 (str) {
+function ROT7 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 115)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 83)))
     {
@@ -165,7 +172,8 @@ return string;
 }
 
 
-function ROT18 (str) {
+function ROT8 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 114)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 82)))
     {
@@ -184,7 +192,8 @@ return string;
 }
 
 
-function ROT17 (str) {
+function ROT9 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 113)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 81)))
     {
@@ -203,7 +212,8 @@ return string;
 }
 
 
-function ROT16 (str) {
+function ROT10 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 112)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 80)))
     {
@@ -222,7 +232,8 @@ return string;
 }
 
 
-function ROT15 (str) {
+function ROT11 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 111)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 79)))
     {
@@ -241,7 +252,8 @@ return string;
 }
 
 
-function ROT14 (str) {
+function ROT12 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 110)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 78)))
     {
@@ -261,6 +273,7 @@ return string;
 
 
 function ROT13 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 109)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 77)))
     {
@@ -279,7 +292,8 @@ return string;
 }
 
 
-function ROT12 (str) {
+function ROT14 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 108)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 76)))
     {
@@ -298,7 +312,8 @@ return string;
 }
 
 
-function ROT11 (str) {
+function ROT15 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 107)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 75)))
     {
@@ -317,7 +332,8 @@ return string;
 }
 
 
-function ROT10 (str) {
+function ROT16 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 106)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 74)))
     {
@@ -336,7 +352,8 @@ return string;
 }
 
 
-function ROT9 (str) {
+function ROT17 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 105)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 73)))
     {
@@ -355,7 +372,8 @@ return string;
 }
 
 
-function ROT8 (str) {
+function ROT18 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 104)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 72)))
     {
@@ -374,7 +392,8 @@ return string;
 }
 
 
-function ROT7 (str) {
+function ROT19 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 103)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 71)))
     {
@@ -393,7 +412,8 @@ return string;
 }
 
 
-function ROT6 (str) {
+function ROT20 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 102)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 70)))
     {
@@ -412,7 +432,8 @@ return string;
 }
 
 
-function ROT5 (str) {
+function ROT21 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 101)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 69)))
     {
@@ -431,7 +452,8 @@ return string;
 }
 
 
-function ROT4 (str) {
+function ROT22 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 100)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 68)))
     {
@@ -450,7 +472,8 @@ return string;
 }
 
 
-function ROT3 (str) {
+function ROT23 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 99)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 67)))
     {
@@ -469,7 +492,8 @@ return string;
 }
 
 
-function ROT2 (str) {
+function ROT24 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 98)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 66)))
     {
@@ -488,7 +512,8 @@ return string;
 }
 
 
-function ROT1 (str) {
+function ROT25 (str) {
+	var string = "";
 for(let i=0; i < str.length; i++){
     if(((str.charCodeAt(i) >= 97) && (str.charCodeAt(i) <= 97)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= 65)))
     {
@@ -606,8 +631,8 @@ function aesEncrypt(message, key){
 
 function aesDecrypt(message, key) {
 	let destr = ""; 
-    let decrypted = CryptoJS.AES.decrypt(encrypted, key);
-    destr = destr + decrypted
+    let decrypted = CryptoJS.AES.decrypt(message, key);
+    destr = decrypted.toString(CryptoJS.enc.Utf8);
     return destr;
 }
 
@@ -636,13 +661,7 @@ function rc4Encryption(key, str) {
 	return string;
 }
 
-
-
-
-
-
-
-
+//no work
 var shuffledArr;
 let alphabetArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -663,11 +682,11 @@ function shuffle(array) {
 	return shuffledArray;
 }
 
-function monoEncrypt(){
+function monoEncrypt(textArr){
 	shuffledArr = shuffle(alphabetArr);
-	document.getElementById("Key").innerHTML = shuffledArr.join().replace(/,/g, '')
+	document.getElementById("key").innerHTML = shuffledArr.join().replace(/,/g, '')
 
-	var textArr = document.getElementById("textbox").value.split("");
+	//var textArr = document.getElementById("textbox").value.split("");
 	for(let k=0; k<textArr.length; k++){
 		if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
 		continue;
@@ -680,8 +699,8 @@ function monoEncrypt(){
 	
 	
 	
-function monoDecrypt(){
-	var textArr = document.getElementById("result").value.split("");
+function monoDecrypt(textArr){
+	//var textArr = document.getElementById("result").value.split("");
 	for(let k=0; k<textArr.length;k++){
 		if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
 		continue;
@@ -697,45 +716,100 @@ function main(){
 	
 	if(selected == "monoalphabetic"){
 		if(eod == "encrypt"){
-			document.getElementById("encrypted1").innerHTML = monoEncrypt();
+			document.getElementById("encrypted1").innerHTML = monoEncrypt(inputPlaintext);
 		}else if(eod == "decrypt"){
-			document.getElementById("encrypted1").innerHTML = monoDecrypt();
+			document.getElementById("decrypted1").innerHTML = monoDecrypt(inputPlaintext);
 		}
 	}
-	if(selected == "ceaser"){
+	if(selected == "caesar"){
+		if(caesarNumber > 25){
+			caesarNum = 25;
+		}else if(caesarNumber < 1){
+			caesarNumber = 1;
+		}
+
 		if(eod == "encrypt"){
-		
+			if(caesarNumber == 1){
+				document.getElementById("encrypted1").innerHTML = ROT1(inputPlaintext);
+			}else if(caesarNumber == 2){
+				document.getElementById("encrypted1").innerHTML = ROT2(inputPlaintext);
+			}else if(caesarNumber == 3){
+				document.getElementById("encrypted1").innerHTML = ROT3(inputPlaintext);
+			}else if(caesarNumber == 4){
+				document.getElementById("encrypted1").innerHTML = ROT4(inputPlaintext);
+			}else if(caesarNumber == 5){
+				document.getElementById("encrypted1").innerHTML = ROT5(inputPlaintext);
+			}else if(caesarNumber == 6){
+				document.getElementById("encrypted1").innerHTML = ROT6(inputPlaintext);
+			}else if(caesarNumber == 7){
+				document.getElementById("encrypted1").innerHTML = ROT(inputPlaintext7);
+			}else if(caesarNumber == 8){
+				document.getElementById("encrypted1").innerHTML = ROT8(inputPlaintext);
+			}else if(caesarNumber == 9){
+				document.getElementById("encrypted1").innerHTML = ROT9(inputPlaintext);
+			}else if(caesarNumber == 10){
+				document.getElementById("encrypted1").innerHTML = ROT10(inputPlaintext);
+			}else if(caesarNumber == 11){
+				document.getElementById("encrypted1").innerHTML = ROT11(inputPlaintext);
+			}else if(caesarNumber == 12){
+				document.getElementById("encrypted1").innerHTML = ROT12(inputPlaintext);
+			}else if(caesarNumber == 13){
+				document.getElementById("encrypted1").innerHTML = ROT13(inputPlaintext);
+			}else if(caesarNumber == 14){
+				document.getElementById("encrypted1").innerHTML = ROT14(inputPlaintext);
+			}else if(caesarNumber == 15){
+				document.getElementById("encrypted1").innerHTML = ROT15(inputPlaintext);
+			}else if(caesarNumber == 16){
+				document.getElementById("encrypted1").innerHTML = ROT16(inputPlaintext);
+			}else if(caesarNumber == 17){
+				document.getElementById("encrypted1").innerHTML = ROT17(inputPlaintext);
+			}else if(caesarNumber == 18){
+				document.getElementById("encrypted1").innerHTML = ROT18(inputPlaintext);
+			}else if(caesarNumber == 19){
+				document.getElementById("encrypted1").innerHTML = ROT19(inputPlaintext);
+			}else if(caesarNumber == 20){
+				document.getElementById("encrypted1").innerHTML = ROT20(inputPlaintext);
+			}else if(caesarNumber == 21){
+				document.getElementById("encrypted1").innerHTML = ROT21(inputPlaintext);
+			}else if(caesarNumber == 22){
+				document.getElementById("encrypted1").innerHTML = ROT22(inputPlaintext);
+			}else if(caesarNumber == 23){
+				document.getElementById("encrypted1").innerHTML = ROT23(inputPlaintext);
+			}else if(caesarNumber == 24){
+				document.getElementById("encrypted1").innerHTML = ROT24(inputPlaintext);
+			}else if(caesarNumber == 25){
+				document.getElementById("encrypted1").innerHTML = ROT25(inputPlaintext);
+			}
 		}else if(eod == "decrypt"){
 		
 		}
-
 	}
 	if(selected == "atbash"){
 		if(eod == "encrypt"){
 			document.getElementById("encrypted1").innerHTML = AtBash(inputPlaintext);
 		}else if(eod == "decrypt"){
-			document.getElementById("encrypted1").innerHTML = AtBashDecrypt(inputPlaintext);
+			document.getElementById("decrypted1").innerHTML = AtBashDecrypt(inputPlaintext);
 		}
 	}
 	if(selected == "homophonic"){
 		if(eod == "encrypt"){
 			document.getElementById("encrypted1").innerHTML = homophonicEncrypt(inputPlaintext);
 		}else if(eod == "decrypt"){
-			document.getElementById("encrypted1").innerHTML = homophonicDecrypt(inputPlaintext);
+			document.getElementById("decrypted1").innerHTML = homophonicDecrypt(inputPlaintext);
 		}
 	}
 	if(selected == "aes"){
 		if(eod == "encrypt"){
 			document.getElementById("encrypted1").innerHTML = aesEncrypt(inputPlaintext, inputKey);
 		}else if(eod == "decrypt"){
-			document.getElementById("encrypted1").innerHTML = aesDecrypt(inputPlaintext, inputKey);
+			document.getElementById("decrypted1").innerHTML = aesDecrypt(inputPlaintext, inputKey);
 		}
 	}
 	if(selected == "rc4"){
 		if(eod == "encrypt"){
 			document.getElementById("encrypted1").innerHTML = rc4Encryption(inputKey, inputPlaintext);
 		}else if(eod == "decrypt"){
-			document.getElementById("encrypted1").innerHTML = rc4Encryption(inputKey, inputPlaintext);
+			document.getElementById("decrypted1").innerHTML = rc4Encryption(inputKey, inputPlaintext);
 		}
 	}
 }
