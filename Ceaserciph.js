@@ -475,9 +475,8 @@ return string
 
 function AtBash (inp){
 
-    let inp = document.getElementById("textbox_id").value;
-	let i=0;
-	let charlistUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+    let charlistUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     let charlistUpperReverse = ['Z', "Y", "X", "W", "V", "U", "T", "S", "R", "Q", "P", "O", "N", "M", "L", "K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
     let charlistLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     let charlistLowerReverse = ['z', "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"];
@@ -488,10 +487,37 @@ function AtBash (inp){
         
         if((inp.charCodeAt(i) >= 65) && (inp.charCodeAt(i) <= 90)){
             pos = charlistUpper.indexOf(inp.charAt(i));
-            output += $charlistUpperReverse[pos];
+            output += charlistUpperReverse[pos];
         }else if(inp.charCodeAt(i) >= 97 && inp.charCodeAt(i) <= 122){ 
             pos = charlistLower.indexOf(inp.charAt(i));
             output += charlistLowerReverse[pos];
+
+        }else{
+            output += str.charAt(i);
+
+        }
+    
+    }
+    return output;
+}
+
+function AtBashDecrypt (inp){
+
+    let charlistUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    let charlistUpperReverse = ['Z', "Y", "X", "W", "V", "U", "T", "S", "R", "Q", "P", "O", "N", "M", "L", "K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
+    let charlistLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    let charlistLowerReverse = ['z', "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"];
+    
+    let output = "";
+
+    for(let i = 0; i < inp.length; i++){
+        
+        if((inp.charCodeAt(i) >= 65) && (inp.charCodeAt(i) <= 90)){
+            pos = charlistUpperReverse.indexOf(inp.charAt(i));
+            output += charlistUpper[pos];
+        }else if(inp.charCodeAt(i) >= 97 && inp.charCodeAt(i) <= 122){ 
+            pos = charlistLowerReverse.indexOf(inp.charAt(i));
+            output += charlistLower[pos];
 
         }else{
             output += str.charAt(i);
