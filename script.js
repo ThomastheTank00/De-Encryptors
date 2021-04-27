@@ -1,3 +1,4 @@
+let selected = document.getElementsByName("ciphers");
 // TODO ADD MONO cipher 
 window.addEventListener("DOMContentLoaded", function () {
 	document.querySelector("#enbtn").addEventListener("click", function () {
@@ -496,7 +497,7 @@ return string;
 }
 
 // ATBASH
-function AtBash (inp){
+function AtBash(inp){
 
 
     let charlistUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -524,7 +525,7 @@ function AtBash (inp){
     return output;
 }
 
-function AtBashDecrypt (inp){
+function AtBashDecrypt(inp){
 
     let charlistUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     let charlistUpperReverse = ['Z', "Y", "X", "W", "V", "U", "T", "S", "R", "Q", "P", "O", "N", "M", "L", "K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
@@ -627,4 +628,44 @@ function rc4Encryption(key, str) {
 
 function main(){
 	// make large if else or switch statement that checks what cipherChoise is and if it is encryption or decryption then make it run the appropriate function
+	if(selected[0].checked){
+		document.getElementById("enbtn").onclick=function(){
+			
+		}
+		document.getElementById("debtn").onclick=function(){
+    			
+		}
+	}
+	if(selected[1].checked){
+		document.getElementById("enbtn").onclick=function(){
+			AtBash();
+		}
+		document.getElementById("debtn").onclick=function(){
+    			AtBashDecrypt();
+		}		
+	}
+	if(selected[2].checked){
+		document.getElementById("enbtn").onclick=function(){
+			homophonicEncrypt();
+		}
+		document.getElementById("debtn").onclick=function(){
+    			homophonicDecrypt();
+		}		
+	}
+	if(selected[3].checked){
+		document.getElementById("enbtn").onclick=function(){
+			aesEncrypt();
+		}
+		document.getElementById("debtn").onclick=function(){
+    			aesDecrypt();
+		}		
+	}
+	if(selected[4].checked){
+		document.getElementById("enbtn").onclick=function(){
+			rc4Encryption();
+		}
+		document.getElementById("debtn").onclick=function(){
+    			rc4Encryption();
+		}		
+	}
 }
