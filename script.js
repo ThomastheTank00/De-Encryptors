@@ -1,11 +1,19 @@
-let selected = document.getElementsByName("ciphers");
+var inputPlaintext;
+var inputKey;
+var selected;
+var eod;
+
 // TODO ADD MONO cipher 
 window.addEventListener("DOMContentLoaded", function () {
 	document.querySelector("#enbtn").addEventListener("click", function () {
-		const cipherChoise = document.getElementsByName("cipers").value;
+		selected = $('input[name="cipers"]:checked').val();
+		console.log(selected);
+		//const cipherChoise = document.getElementsByName("cipers").value;
 		if(document.getElementById("myfile").value == ""){
-			const inputPlaintext = document.getElementById("message").value;
-			const key = document.getElementById("key").value;
+			eod = "encrypt";
+			inputPlaintext = document.getElementById("message").value
+			inputKey = document.getElementById("key").value;
+			main();
 		}
 	});
 });
@@ -14,8 +22,10 @@ window.addEventListener("DOMContentLoaded", function () {
 	document.querySelector("#debtn").addEventListener("click", function () {
 		const cipherChoise = document.getElementsByName("cipers").value;
 		if(document.getElementById("myfile").value == ""){
-			const inputPlaintext = document.getElementById("message").value;
-			const key = document.getElementById("key").value;
+			eod = "decrypt";
+			inputPlaintext = document.getElementById("message").value;
+			inputKey = document.getElementById("key").value;
+			main();
 		}
 
 	});
@@ -557,11 +567,11 @@ function homophonicEncrypt(plaintext){
     let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 	let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N"];
     let ciphertext = "";
-    for(let i=0; i < plaintext.length(); i++){
+    for(let i=0; i < plaintext.length; i++){
         if(plaintext.charCodeAt(i) >= 65 && plaintext.charCodeAt(i) <= 90){
             ciphertext += arr2[arr1.indexOf(plaintext.charAt(i))];
-        }else if(plaintext.charCodeAt(i) >= 97 && plaintext.charCodeAt(i) <= 122){
-            ciphertext += arr2[arr1.indexOf(plaintext.charAt(i))];
+        //}else if(plaintext.charCodeAt(i) >= 97 && plaintext.charCodeAt(i) <= 122){
+           // ciphertext += arr2[arr1.indexOf(plaintext.charAt(i))];
         }else{
             ciphertext += plaintext.charAt(i);
         }
@@ -573,11 +583,11 @@ function homophonicDecrypt(ciphertext){
 	let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 	let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N"];
     let plaintext= "";
-    for(let i=0; i < ciphertext.length(); i++){
+    for(let i=0; i < ciphertext.length; i++){
         if(ciphertext.charCodeAt(i) >= 65 && ciphertext.charCodeAt(i) <= 90){
             plaintext += arr1[arr2.indexOf(ciphertext.charAt(i))];
-        }else if(ciphertext.charCodeAt(i) >= 97 && ciphertext.charCodeAt(i) <= 122){
-            plaintext += arr1[arr2.indexOf(ciphertext.charAt(i))];
+        //}else if(ciphertext.charCodeAt(i) >= 97 && ciphertext.charCodeAt(i) <= 122){
+           // plaintext += arr1[arr2.indexOf(ciphertext.charAt(i))];
         }else{
             plaintext += ciphertext.charAt(i);
         }
@@ -620,52 +630,112 @@ function rc4Encryption(key, str) {
 		j = (j + a[i]) % 256;
 		z = a[i];
 		a[i] = a[j];
-		a[j] = x;
+		a[j] = z;
 		string += String.fromCharCode(str.charCodeAt(b) ^ a[(a[i] + a[j]) % 256]);
 	}
 	return string;
 }
 
+
+
+
+
+
+
+
+var shuffledArr;
+let alphabetArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+function shuffle(array) {
+	let shuffledArray = array.slice(0,array.length)
+	var currentIndex = shuffledArray.length;
+	var temporaryValue, randomIndex;
+
+	while (0 !== currentIndex) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+
+		temporaryValue = shuffledArray[currentIndex];
+		shuffledArray[currentIndex] = shuffledArray[randomIndex];
+		shuffledArray[randomIndex] = temporaryValue;
+	}
+
+	return shuffledArray;
+}
+
+function monoEncrypt(){
+	shuffledArr = shuffle(alphabetArr);
+	document.getElementById("Key").innerHTML = shuffledArr.join().replace(/,/g, '')
+
+	var textArr = document.getElementById("textbox").value.split("");
+	for(let k=0; k<textArr.length; k++){
+		if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
+		continue;
+
+		}else
+			textArr[k]=shuffledArr[alphabetArr.indexOf(textArr[k].toUpperCase())];
+		}
+		return textArr.join().replace(/,/g, '')
+}
+	
+	
+	
+function monoDecrypt(){
+	var textArr = document.getElementById("result").value.split("");
+	for(let k=0; k<textArr.length;k++){
+		if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
+		continue;
+
+		}else{	
+			textArr[k]=alphabetArr[shuffledArr.indexOf(textArr[k].toUpperCase())];
+		}
+	}
+	return textArr.join().replace(/,/g, '');
+}
+
 function main(){
-	// make large if else or switch statement that checks what cipherChoise is and if it is encryption or decryption then make it run the appropriate function
-	if(selected[0].checked){
-		document.getElementById("enbtn").onclick=function(){
-			
-		}
-		document.getElementById("debtn").onclick=function(){
-    			
+	
+	if(selected == "monoalphabetic"){
+		if(eod == "encrypt"){
+			document.getElementById("encrypted1").innerHTML = monoEncrypt();
+		}else if(eod == "decrypt"){
+			document.getElementById("encrypted1").innerHTML = monoDecrypt();
 		}
 	}
-	if(selected[1].checked){
-		document.getElementById("enbtn").onclick=function(){
-			AtBash();
+	if(selected == "ceaser"){
+		if(eod == "encrypt"){
+		
+		}else if(eod == "decrypt"){
+		
 		}
-		document.getElementById("debtn").onclick=function(){
-    			AtBashDecrypt();
-		}		
+
 	}
-	if(selected[2].checked){
-		document.getElementById("enbtn").onclick=function(){
-			homophonicEncrypt();
+	if(selected == "atbash"){
+		if(eod == "encrypt"){
+			document.getElementById("encrypted1").innerHTML = AtBash(inputPlaintext);
+		}else if(eod == "decrypt"){
+			document.getElementById("encrypted1").innerHTML = AtBashDecrypt(inputPlaintext);
 		}
-		document.getElementById("debtn").onclick=function(){
-    			homophonicDecrypt();
-		}		
 	}
-	if(selected[3].checked){
-		document.getElementById("enbtn").onclick=function(){
-			aesEncrypt();
+	if(selected == "homophonic"){
+		if(eod == "encrypt"){
+			document.getElementById("encrypted1").innerHTML = homophonicEncrypt(inputPlaintext);
+		}else if(eod == "decrypt"){
+			document.getElementById("encrypted1").innerHTML = homophonicDecrypt(inputPlaintext);
 		}
-		document.getElementById("debtn").onclick=function(){
-    			aesDecrypt();
-		}		
 	}
-	if(selected[4].checked){
-		document.getElementById("enbtn").onclick=function(){
-			rc4Encryption();
+	if(selected == "aes"){
+		if(eod == "encrypt"){
+			document.getElementById("encrypted1").innerHTML = aesEncrypt(inputPlaintext, inputKey);
+		}else if(eod == "decrypt"){
+			document.getElementById("encrypted1").innerHTML = aesDecrypt(inputPlaintext, inputKey);
 		}
-		document.getElementById("debtn").onclick=function(){
-    			rc4Encryption();
-		}		
+	}
+	if(selected == "rc4"){
+		if(eod == "encrypt"){
+			document.getElementById("encrypted1").innerHTML = rc4Encryption(inputKey, inputPlaintext);
+		}else if(eod == "decrypt"){
+			document.getElementById("encrypted1").innerHTML = rc4Encryption(inputKey, inputPlaintext);
+		}
 	}
 }
