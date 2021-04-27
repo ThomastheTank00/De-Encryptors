@@ -2,11 +2,11 @@
 <html>
     <head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
         <script src="script.js"></script>
     </head>
     <body>
         <div id="">
-	    <label for="message">Enter Text Here</label>
             <input type="text" id="message">
             <p>
                 -OR-
@@ -25,6 +25,7 @@
             <label for="atbash">AtBash</label>
             <input type="radio" id="caesar" name="cipers" value="caesar">
             <label for="caesar">Caesar</label>
+			<input type="number" id="caesarNum" name="caesarNum" value="13" style="width: 3em" max="25" min="1">
             <input type="radio" id="homophonic" name="cipers" value="homophonic">
             <label for="homophonic">Homophonic Substitution</label>
             <input type="radio" id="aes" name="cipers" value="aes">
@@ -46,7 +47,7 @@
             <label for="encrypted">Encrypted</label>
             <p id="encrypted1" style="border: 1px solid black;"></p>
             <label for="decrypted">Decrypted</label>
-            <p id="decrypted" style="border: 1px solid black;"></p>
+            <p id="decrypted1" style="border: 1px solid black;"></p>
             <p>
                 -OR-
             </p>
