@@ -16,16 +16,17 @@
             </form>
         </div>
         <div id="">
-            <input type="radio" id="monoalphabetic">
+            <p>Choose the type of encoding or decoding: </p> 
+            <input type="radio" id="monoalphabetic" value="monoalphabetic">
             <label for="monoalphabetic">Monoalphabetic</label>
-            <input type="radio" id="caesar">
+            <input type="radio" id="caesar" value="caesar">
             <label for="caesar">Caesar</label>
-            <input type="radio" id="homophonic">
+            <input type="radio" id="homophonic" value="homophonic">
             <label for="homophonic">Homophonic Substitution</label>
-            <input type="radio" id="aes">
+            <input type="radio" id="aes" value="aes">
             <label for="aes">AES</label>
-            <input type="radio" id="rc4">
-            <label for="rc4">RC4</label>
+            <input type="radio" id="rc4" value="rc4">
+            <label for="rc4">RC4</label><br>
         </div>
         <div id="">
             <button id="enbtn">Encrypt</button>
@@ -38,8 +39,10 @@
             </p>
         </div>
         <div id="">
-            <textarea rows="4"  cols="50" id="encrypted"></textarea>
-            <textarea rows="4"  cols="50" id="decrypted"></textarea>
+            <label for="encrypted">Encrypted</label>
+            <p id="encrypted" style="border: 1px solid black;"></p>
+            <label for="decrypted">Decrypted</label>
+            <p id="decrypted" style="border: 1px solid black;"></p>
             <p>
                 -OR-
             </p>
