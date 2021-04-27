@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="">
+            <input type="text" id="message">
+            <p>
+                -OR-
+            </p>
+            <form action="/action_page.php">
+                <label for="myfile">Select a file:</label>
+                <input type="file" id="myfile" name="myfile">
+                <input type="submit">
+            </form>
+        </div>
+        <div id="">
+            <p>Choose the type of encoding or decoding: </p> 
+            <input type="radio" id="monoalphabetic" name ="cipers" value="monoalphabetic">
+            <label for="monoalphabetic">Monoalphabetic</label>
+            <input type="radio" id="caesar" name ="cipers" value="caesar">
+            <label for="caesar">Caesar</label>
+            <input type="radio" id="homophonic" name ="cipers" value="homophonic">
+            <label for="homophonic">Homophonic Substitution</label>
+            <input type="radio" id="aes" name ="cipers" value="aes">
+            <label for="aes">AES</label>
+            <input type="radio" id="rc4" name ="cipers" value="rc4">
+            <label for="rc4">RC4</label><br>
+        </div>
+        <div id="">
+            <button id="enbtn">Encrypt</button>
+            <input type="text" id="key">
+            <button id="debtn">Decrypt</button>
+        </div>
+        <div id="">
+            <p>
+                Progress:
+            </p>
+        </div>
+        <div id="">
+            <label for="encrypted">Encrypted</label>
+            <p id="encrypted" style="border: 1px solid black;"></p>
+            <label for="decrypted">Decrypted</label>
+            <p id="decrypted" style="border: 1px solid black;"></p>
+            <p>
+                -OR-
+            </p>
+            <button id="btn">Download File</button>
+        </div>
+    </body>
+</html>
