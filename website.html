@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
         <script src="script.js"></script>
     </head>
     <body>
-        <div id="">
+        <div>
+            <label for="message">Enter Text:</label>
             <input type="text" id="message">
             <p>
                 -OR-
             </p>
-            <form action="/action_page.php">
+            <form>
                 <label for="myfile">Select a file:</label>
                 <input type="file" id="myfile" name="myfile">
                 <input type="submit">
@@ -33,17 +35,18 @@
             <input type="radio" id="rc4" name="cipers" value="rc4">
             <label for="rc4">RC4</label><br>
         </div>
-        <div id="">
-            <button id="enbtn">Encrypt</button>
+        <div>
+            <label for="key">Enter Key:</label>
             <input type="text" id="key">
-            <button id="debtn">Decrypt</button>
         </div>
-        <div id="">
+        <div>
+            <button id="enbtn">Encrypt</button>
+            <button id="debtn">Decrypt</button>
             <p>
                 Progress:
             </p>
         </div>
-        <div id="">
+        <div>
             <label for="encrypted">Encrypted</label>
             <p id="encrypted1" style="border: 1px solid black;"></p>
             <label for="decrypted">Decrypted</label>
