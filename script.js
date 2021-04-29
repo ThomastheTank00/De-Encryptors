@@ -683,33 +683,32 @@ function shuffle(array) {
 }
 
 function monoEncrypt(textArr){
-	shuffledArr = shuffle(alphabetArr);
-	document.getElementById("key").innerHTML = shuffledArr.join().replace(/,/g, '')
+shuffledArr = shuffle(alphabetArr);
+console.log(shuffledArr.join().replace(/,/g, ''));
+textArr = textArr.split("");
+//var textArr = document.getElementById("textbox").value.split("");
+for(let k=0; k<textArr.length; k++){
+if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
+continue;
 
-	//var textArr = document.getElementById("textbox").value.split("");
-	for(let k=0; k<textArr.length; k++){
-		if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
-		continue;
-
-		}else
-			textArr[k]=shuffledArr[alphabetArr.indexOf(textArr[k].toUpperCase())];
-		}
-		return textArr.join().replace(/,/g, '')
+}
+    else
+        textArr[k]=shuffledArr[alphabetArr.indexOf(textArr[k].toUpperCase())];
+	}
+return textArr.join().replace(/,/g, '');
 }
 	
 	
-	
 function monoDecrypt(textArr){
-	//var textArr = document.getElementById("result").value.split("");
-	for(let k=0; k<textArr.length;k++){
-		if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
-		continue;
+//var textArr = document.getElementById("result").value.split("");
+textArr = textArr.split("");
+for(let k=0; k<textArr.length;k++){
+if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
+continue;
 
-		}else{	
-			textArr[k]=alphabetArr[shuffledArr.indexOf(textArr[k].toUpperCase())];
-		}
-	}
-	return textArr.join().replace(/,/g, '');
+}else
+textArr[k]=alphabetArr[shuffledArr.indexOf(textArr[k].toUpperCase())];
+} return textArr.join().replace(/,/g, '');
 }
 
 function main(){
@@ -781,7 +780,57 @@ function main(){
 				document.getElementById("encrypted1").innerHTML = ROT25(inputPlaintext);
 			}
 		}else if(eod == "decrypt"){
-		
+            if(caesarNumber == 25){
+				document.getElementById("decrypted1").innerHTML = ROT1(inputPlaintext);
+			}else if(caesarNumber == 24){
+				document.getElementById("decrypted1").innerHTML = ROT2(inputPlaintext);
+			}else if(caesarNumber == 23){
+				document.getElementById("decrypted1").innerHTML = ROT3(inputPlaintext);
+			}else if(caesarNumber == 22){
+				document.getElementById("decrypted1").innerHTML = ROT4(inputPlaintext);
+			}else if(caesarNumber == 21){
+				document.getElementById("decrypted1").innerHTML = ROT5(inputPlaintext);
+			}else if(caesarNumber == 20){
+				document.getElementById("decrypted1").innerHTML = ROT6(inputPlaintext);
+			}else if(caesarNumber == 19){
+				document.getElementById("decrypted1").innerHTML = ROT(inputPlaintext7);
+			}else if(caesarNumber == 18){
+				document.getElementById("decrypted1").innerHTML = ROT8(inputPlaintext);
+			}else if(caesarNumber == 17){
+				document.getElementById("decrypted1").innerHTML = ROT9(inputPlaintext);
+			}else if(caesarNumber == 16){
+				document.getElementById("decrypted1").innerHTML = ROT10(inputPlaintext);
+			}else if(caesarNumber == 15){
+				document.getElementById("decrypted1").innerHTML = ROT11(inputPlaintext);
+			}else if(caesarNumber == 14){
+				document.getElementById("decrypted1").innerHTML = ROT12(inputPlaintext);
+			}else if(caesarNumber == 13){
+				document.getElementById("decrypted1").innerHTML = ROT13(inputPlaintext);
+			}else if(caesarNumber == 12){
+				document.getElementById("decrypted1").innerHTML = ROT14(inputPlaintext);
+			}else if(caesarNumber == 11){
+				document.getElementById("decrypted1").innerHTML = ROT15(inputPlaintext);
+			}else if(caesarNumber == 10){
+				document.getElementById("decrypted1").innerHTML = ROT16(inputPlaintext);
+			}else if(caesarNumber == 9){
+				document.getElementById("decrypted1").innerHTML = ROT17(inputPlaintext);
+			}else if(caesarNumber == 8){
+				document.getElementById("decrypted1").innerHTML = ROT18(inputPlaintext);
+			}else if(caesarNumber == 7){
+				document.getElementById("decrypted1").innerHTML = ROT19(inputPlaintext);
+			}else if(caesarNumber == 6){
+				document.getElementById("decrypted1").innerHTML = ROT20(inputPlaintext);
+			}else if(caesarNumber == 5){
+				document.getElementById("decrypted1").innerHTML = ROT21(inputPlaintext);
+			}else if(caesarNumber == 4){
+				document.getElementById("decrypted1").innerHTML = ROT22(inputPlaintext);
+			}else if(caesarNumber == 3){
+				document.getElementById("decrypted1").innerHTML = ROT23(inputPlaintext);
+			}else if(caesarNumber == 2){
+				document.getElementById("decrypted1").innerHTML = ROT24(inputPlaintext);
+			}else if(caesarNumber == 1){
+				document.getElementById("decrypted1").innerHTML = ROT25(inputPlaintext);
+			}	
 		}
 	}
 	if(selected == "atbash"){
