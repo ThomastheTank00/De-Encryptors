@@ -1,5 +1,6 @@
 Thomas Leach
 April Allen
+Kobe Culpepper
 
 MONOALPHABETIC CIPHER
 
@@ -47,3 +48,27 @@ if statement is used to ignore unecessary characters.
 else the encrypted array is decrpyted 
 
 -----------------------------------------------------------------------------------------
+HOMOPHONIC SUBSTITUTION
+
+function encrypt(plaintext) is a function which reads user input, encrypts it, and returns the result as ciphertext when the user clicks the encrypt button.
+the variable ciphertext is created
+the variable plaintext is created and is linked to the HTML's textbox
+the for loop within the encrypt function goes down the line, encrypting each letter by way of the substitution method which is specified in the alphabet declared later in the script.
+ciphertext is returned as encrypted via Homophonic Substitution
+
+function decrypt(ciphertext) does the opposite of function encrypt.
+The user enters ciphertext which was encrypted with the same cipher, and the function decrypts it into plaintext.
+The variable plaintext is linked to user's input via the textbox when this function is ran.
+The for loop does the exact same thing as the encrypt function, but instead converts the ciphertext back into plaintext via the prescribed alphabet listed in an array later in the script.
+plaintext is returned as decrypted user input
+
+arr1 is an array of the regular plaintext alphabet.
+arr2 is an array of the homophonic substitution cipher alphabet.
+
+The onclick event links the encrypt and decrypt buttons within the website's html file to run the script's functions:
+encrypt() is linked to "btn"
+decrypt() is linked to "debtn"
+
+
+
+
