@@ -3,6 +3,10 @@ April Allen
 Kobe Culpepper
 Wil Gray
 
+website.html
+
+style.css
+
 script.js contains the following functions and runs one of the them depending upon the radio button choosena dn whether the Encrypt or Decrypt button is clicked on
 
 MONOALPHABETIC CIPHER
@@ -114,11 +118,21 @@ intializes decrypted variable and takes the message and key inputs of the functi
 takes the decrypted variable and put it back into narmal characters through the use of the .toString() and assigns it to the destr variable
 returns variable enstr
 
+
+----------------------------------------------------------------------------------------------------
+
 AtBash
 function atBash(inputString)
 Loops through the input string checking whether or not it is a capital letter or not inversing the character in the alphabet ao a becomes z and z becomes a returning a string.
+
+
+----------------------------------------------------------------------------------------------------
 
 ROT Cipher
 ROT(inputString)
 Takes a string input and moves each character up x times through the alphabet depending on the number of rot given by the user.
 
+----------------------------------------------------------------------------------------------------
+
+funtion main() 
+runs on of the following funcition based on which radio button is selected and whether the Encrypt or Decrypt button is pressed then outputs the result 
