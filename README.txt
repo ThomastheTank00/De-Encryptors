@@ -97,8 +97,9 @@ for (var b = 0;  b str.length;b++) {
 	}
 this reads the strings length and uses hte encryption key made earlier of 256 bytes to encrpyt the string
 
+----------------------------------------------------------------------------------------------------
 
-
+AES
 
 
 
