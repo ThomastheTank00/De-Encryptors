@@ -113,3 +113,12 @@ intializes variable destr with an empty string
 intializes decrypted variable and takes the message and key inputs of the function and runs them through the CryptoJS to decrypt
 takes the decrypted variable and put it back into narmal characters through the use of the .toString() and assigns it to the destr variable
 returns variable enstr
+
+AtBash
+function atBash(inputString)
+Loops through the input string checking whether or not it is a capital letter or not inversing the character in the alphabet ao a becomes z and z becomes a returning a string.
+
+ROT Cipher
+ROT(inputString)
+Takes a string input and moves each character up x times through the alphabet depending on the number of rot given by the user.
+
