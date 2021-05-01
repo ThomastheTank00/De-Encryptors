@@ -100,8 +100,14 @@ this reads the strings length and uses hte encryption key made earlier of 256 by
 ----------------------------------------------------------------------------------------------------
 
 AES
+function aesEncrypt(message, key)
+intializes variable enstr with an empty string
+intializes encrypted variable and takes the message and key inputs of the function and runs them through the CryptoJS to encrypt
+combines the empty string from enstr and encrypted then  assigns them back to the enstr variable
+returns variable enstr
 
-
-
-
-
+function aesDecrypt(message, key)
+intializes variable destr with an empty string
+intializes decrypted variable and takes the message and key inputs of the function and runs them through the CryptoJS to decrypt
+takes the decrypted variable and put it back into narmal characters through the use of the .toString() and assigns it to the destr variable
+returns variable enstr
