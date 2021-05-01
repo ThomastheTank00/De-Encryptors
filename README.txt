@@ -2,12 +2,19 @@ Thomas Leach
 April Allen
 Kobe Culpepper
 Wil Gray
+Daniel Cornett
 
 website.html
+Is the main webpage that allows the user to input text as well as a key to encrypt and decrypt. The user can also chose how encrypt and ecrypt their text by chosing between 6 diffenrt ciphers that can picked using radio buttons Once a user has inputed their text, key if necessary, and choosen the cipher they can choose to encrypt or decrypt by clicking on the corresponding buttons. Once one of those buttons are clicked and the process is complete, the output is displayed in a corresponding box.
 
-style.css
+style.css (added after demonstarion)
+aligns text to the center
+bolds the labes of the web page
+increases font-size of labes
+bolds buttons of the webpage
 
-script.js contains the following functions and runs one of the them depending upon the radio button choosena dn whether the Encrypt or Decrypt button is clicked on
+script.js 
+contains the following functions and runs one of the them depending upon the radio button choosena dn whether the Encrypt or Decrypt button is clicked on
 
 MONOALPHABETIC CIPHER
 
@@ -105,7 +112,7 @@ this reads the strings length and uses hte encryption key made earlier of 256 by
 
 ----------------------------------------------------------------------------------------------------
 
-AES
+AES (fixed after demnostartion) 
 function aesEncrypt(message, key)
 intializes variable enstr with an empty string
 intializes encrypted variable and takes the message and key inputs of the function and runs them through the CryptoJS to encrypt
