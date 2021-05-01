@@ -3,6 +3,8 @@ April Allen
 Kobe Culpepper
 Wil Gray
 
+script.js contains the following functions and runs one of the them depending upon the radio button choosena dn whether the Encrypt or Decrypt button is clicked on
+
 MONOALPHABETIC CIPHER
 
 shuffledArr is created.
