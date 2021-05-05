@@ -1,5 +1,10 @@
 body{
     text-align: center;
+    background-color: aliceblue;
+}
+div {
+    border: 1px solid black;
+    padding: 5px 0px;
 }
 label{
     font-weight: bold;
@@ -7,4 +12,24 @@ label{
 }
 button{
     font-weight: bold;
+}
+#label{
+    font-weight: bold;
+    font-size: large;
+}
+#myProgress {
+    width: 100%;
+    background-color: #ddd;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: blue;
+  }
+#encrypted1{
+    display: none;
+}
+#decrypted1{
+    display: none;
 }
