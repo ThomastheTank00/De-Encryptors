@@ -20,7 +20,7 @@
             </form>
         </div>
         <div>
-            <p>Choose the type of encoding or decoding: </p> 
+            <p id="label">Choose the type of encoding or decoding: </p> 
             <input type="radio" id="monoalphabetic" name="cipers" value="monoalphabetic" checked="true">
             <label for="monoalphabetic">Monoalphabetic</label>
 			<input type="radio" id="atbash" name="cipers" value="atbash">
@@ -34,22 +34,22 @@
             <label for="aes">AES</label>
             <input type="radio" id="rc4" name="cipers" value="rc4">
             <label for="rc4">RC4</label><br>
-        </div>
-        <div>
             <label for="key">Enter Key:</label>
-            <input type="text" id="key">
-        </div>
-        <div>
+            <input type="text" id="key"><br>
             <button id="enbtn">Encrypt</button>
             <button id="debtn">Decrypt</button>
-            <p>
-                Progress:
-            </p>
         </div>
         <div>
-            <label for="encrypted">Encrypted</label>
-            <p id="encrypted1" style="border: 1px solid black;"></p>
-            <label for="decrypted">Decrypted</label>
+            <p id="label"> Progress: </p>
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
+            <p id="complete"></p>
+        </div>
+        <div>
+            <label for="encrypted1">Encrypted</label>
+            <p id="encrypted1" style="border: 1px solid black;"></p><br>
+            <label for="decrypted1">Decrypted</label>
             <p id="decrypted1" style="border: 1px solid black;"></p>
             <p>
                 -OR-
