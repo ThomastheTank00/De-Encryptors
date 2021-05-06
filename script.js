@@ -3,7 +3,7 @@ var inputKey;
 var selected;
 var eod;
 var caesarNumber
-// TODO ADD MONO cipher 
+
 window.addEventListener("DOMContentLoaded", function () {
 	document.querySelector("#enbtn").addEventListener("click", function () {
 		selected = $('input[name="cipers"]:checked').val();
@@ -31,7 +31,32 @@ window.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
-//CEASER
+
+function progressBar() {
+  document.getElementById("myBar").style.display = "block";
+  var i = 0;
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+  if(eod == "encrypt"){
+	  document.getElementById("encrypted1").style.display = "block";
+  }else{
+	  document.getElementById("decrypted1").style.display = "block";
+  }
+}
+
 function ROT1 (str) {
 	var string = "";
 for(let i=0; i < str.length; i++){
@@ -591,12 +616,14 @@ function AtBashDecrypt(inp){
 function homophonicEncrypt(plaintext){
     let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 	let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N"];
+	let arr3 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    let arr4 = ['d', "x", "s", "f", "z", "e", "h", "c", "v", "i", "t", "p", "g", "a", "q", "l", "k", "j", "r", "u", "o", "w", "m", "y", "b", "n"];
     let ciphertext = "";
     for(let i=0; i < plaintext.length; i++){
         if(plaintext.charCodeAt(i) >= 65 && plaintext.charCodeAt(i) <= 90){
             ciphertext += arr2[arr1.indexOf(plaintext.charAt(i))];
-        //}else if(plaintext.charCodeAt(i) >= 97 && plaintext.charCodeAt(i) <= 122){
-           // ciphertext += arr2[arr1.indexOf(plaintext.charAt(i))];
+        }else if(plaintext.charCodeAt(i) >= 97 && plaintext.charCodeAt(i) <= 122){
+            ciphertext += arr4[arr3.indexOf(plaintext.charAt(i))];
         }else{
             ciphertext += plaintext.charAt(i);
         }
@@ -607,12 +634,14 @@ function homophonicEncrypt(plaintext){
 function homophonicDecrypt(ciphertext){
 	let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 	let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N"];
+	let arr3 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    let arr4 = ['d', "x", "s", "f", "z", "e", "h", "c", "v", "i", "t", "p", "g", "a", "q", "l", "k", "j", "r", "u", "o", "w", "m", "y", "b", "n"];
     let plaintext= "";
     for(let i=0; i < ciphertext.length; i++){
         if(ciphertext.charCodeAt(i) >= 65 && ciphertext.charCodeAt(i) <= 90){
             plaintext += arr1[arr2.indexOf(ciphertext.charAt(i))];
-        //}else if(ciphertext.charCodeAt(i) >= 97 && ciphertext.charCodeAt(i) <= 122){
-           // plaintext += arr1[arr2.indexOf(ciphertext.charAt(i))];
+        }else if(ciphertext.charCodeAt(i) >= 97 && ciphertext.charCodeAt(i) <= 122){
+            plaintext += arr3[arr4.indexOf(ciphertext.charAt(i))];
         }else{
             plaintext += ciphertext.charAt(i);
         }
@@ -711,8 +740,9 @@ textArr[k]=alphabetArr[shuffledArr.indexOf(textArr[k].toUpperCase())];
 } return textArr.join().replace(/,/g, '');
 }
 
+
 function main(){
-	
+	progressBar();
 	if(selected == "monoalphabetic"){
 		if(eod == "encrypt"){
 			document.getElementById("encrypted1").innerHTML = monoEncrypt(inputPlaintext);
@@ -843,6 +873,7 @@ function main(){
 	if(selected == "homophonic"){
 		if(eod == "encrypt"){
 			document.getElementById("encrypted1").innerHTML = homophonicEncrypt(inputPlaintext);
+			console.log(homophonicEncrypt(inputPlaintext));
 		}else if(eod == "decrypt"){
 			document.getElementById("decrypted1").innerHTML = homophonicDecrypt(inputPlaintext);
 		}
