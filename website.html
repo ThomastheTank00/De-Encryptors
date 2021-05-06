@@ -7,17 +7,10 @@
         <script src="script.js"></script>
     </head>
     <body>
+	<div id="main">
         <div>
             <label for="message">Enter Text:</label>
             <input type="text" id="message">
-            <p>
-                -OR-
-            </p>
-            <form>
-                <label for="myfile">Select a file:</label>
-                <input type="file" id="myfile" name="myfile">
-                <input type="submit">
-            </form>
         </div>
         <div>
             <p id="label">Choose the type of encoding or decoding: </p> 
@@ -51,10 +44,34 @@
             <p id="encrypted1" style="border: 1px solid black;"></p><br>
             <label for="decrypted1">Decrypted</label>
             <p id="decrypted1" style="border: 1px solid black;"></p>
-            <p>
-                -OR-
-            </p>
-            <button id="btn">Download File</button>
         </div>
+		<button id="helpBtn" name="helpBtn">Help!</button>
+	</div>
+	<div id="helpInf">
+		<h2>How It Works</h2>
+		<p>The textbox next to "Enter Text:" is where you input your text that you want either encrypted or decrypted. You then choose what encryption algoritm you want to use. Next you will enter a key (Note not all algorithms use a key see the
+		information about the algorithms below). Then you choose to encrypt or decrypt the text</p><br>
+		
+		<h2>Monoalphabetic Cipher</h2>
+		<p>The Monoalphabetic Cipher takes a string of capital letters only and numbers or symbols [A-Z0-9!@#] and when encrypted will generate a key that will output to
+		the key textbox and encrypt the letters only [A-Z]. The key that is generated can be used to decrypt the text.</p><br>
+		
+		<h2>AtBash</h2>
+		<p>AtBash takes any non-special character [a-zA-Z0-9] and inverses swaps it with the character n positions starting from the end of the alphabet and working backwards it is a symmetric cipher that takes no key input.</p><br>
+		
+		<h2>ROT</h2>
+		<p>The ROT ciphers 1-25 are ceaser ciphers that will shift the characters of the inputted string n times along the alphabet wrapping around. This cipher does not use a key.</p><br>
+		
+		<h2>Homophonic Substitution</h2>
+		<p>Homophonic Substitution takes the inputted string and switches each character with a predefined dictonary. This cipher does not use a key and can accept any character [a-zA-Z0-9] including special characters.</p><br>
+		
+		<h2>AES</h2>
+		<p>AES takes a string input including a key and will encrypt the string outputting a digest string. The key is required to decrypt the text.</p><br>
+		
+		<h2>RC4</h2>
+		<p>RC4 encryption algoritm takes an inputted string and key and returns an encrypted string. The key is requred to decrypt the text.</p>
+		
+		<button id="backBtn" name="backBtn">Back</button>
+	</div>
     </body>
 </html>
