@@ -26,10 +26,14 @@ button{
     width: 1%;
     height: 30px;
     background-color: blue;
+    display: none;
   }
 #encrypted1{
     display: none;
 }
 #decrypted1{
+    display: none;
+}
+#helpInf{
     display: none;
 }
