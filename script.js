@@ -2,35 +2,43 @@ var inputPlaintext;
 var inputKey;
 var selected;
 var eod;
-var caesarNumber
+var caesarNumber;
 
 window.addEventListener("DOMContentLoaded", function () {
-	document.querySelector("#enbtn").addEventListener("click", function () {
+		document.querySelector("#helpBtn").addEventListener("click", function () {
+				document.getElementById("main").style.display = "none";
+				document.getElementById("helpInf").style.display = "block";
+		});
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+		document.querySelector("#backBtn").addEventListener("click", function () {
+				document.getElementById("main").style.display = "block";
+				document.getElementById("helpInf").style.display = "none";
+		});
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+		document.querySelector("#enbtn").addEventListener("click", function () {
 		selected = $('input[name="cipers"]:checked').val();
-		if(document.getElementById("myfile").value == ""){
-			eod = "encrypt";
-			caesarNumber = document.getElementById("caesarNum").value;
-			inputPlaintext = document.getElementById("message").value
-			inputKey = document.getElementById("key").value;
-			main();
-		}
+		eod = "encrypt";
+		caesarNumber = document.getElementById("caesarNum").value;
+		inputPlaintext = document.getElementById("message").value
+		inputKey = document.getElementById("key").value;
+		main();
 	});
 });
 
 window.addEventListener("DOMContentLoaded", function () {
-	document.querySelector("#debtn").addEventListener("click", function () {
-		const cipherChoise = document.getElementsByName("cipers").value;
-		if(document.getElementById("myfile").value == ""){
-			eod = "decrypt";
-			caesarNumber = document.getElementById("caesarNum").value;
-			inputPlaintext = document.getElementById("message").value;
-			inputKey = document.getElementById("key").value;
-			main();
-		}
-
+		document.querySelector("#debtn").addEventListener("click", function () {
+		selected = $('input[name="cipers"]:checked').val();
+		eod = "decrypt";
+		caesarNumber = document.getElementById("caesarNum").value;
+		inputKey = document.getElementById("key").value;
+		inputPlaintext = document.getElementById("message").value;
+		main();
 	});
 });
-
 
 function progressBar() {
   document.getElementById("myBar").style.display = "block";
@@ -560,51 +568,17 @@ return string;
 function AtBash(inp){
 
 
-    let charlistUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    let charlistUpperReverse = ['Z', "Y", "X", "W", "V", "U", "T", "S", "R", "Q", "P", "O", "N", "M", "L", "K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
-    let charlistLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    let charlistLowerReverse = ['z', "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"];
-    
+    let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    let arr2 = ['Z', "Y", "X", "W", "V", "U", "T", "S", "R", "Q", "P", "O", "N", "M", "L", "K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A", 'z', "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a", "0", "9", "8", "7", "6", "5", "4", "3", "2", "1"];
     let output = "";
 
     for(let i = 0; i < inp.length; i++){
         
-        if((inp.charCodeAt(i) >= 65) && (inp.charCodeAt(i) <= 90)){
-            pos = charlistUpper.indexOf(inp.charAt(i));
-            output += charlistUpperReverse[pos];
-        }else if(inp.charCodeAt(i) >= 97 && inp.charCodeAt(i) <= 122){ 
-            pos = charlistLower.indexOf(inp.charAt(i));
-            output += charlistLowerReverse[pos];
-
+        if(arr1.indexOf(inp.charAt(i) != -1)){
+            pos = arr1.indexOf(inp.charAt(i));
+            output += arr2[pos];
         }else{
-            output += str.charAt(i);
-
-        }
-    
-    }
-    return output;
-}
-
-function AtBashDecrypt(inp){
-
-    let charlistUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    let charlistUpperReverse = ['Z', "Y", "X", "W", "V", "U", "T", "S", "R", "Q", "P", "O", "N", "M", "L", "K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
-    let charlistLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    let charlistLowerReverse = ['z', "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a"];
-    
-    let output = "";
-
-    for(let i = 0; i < inp.length; i++){
-        
-        if((inp.charCodeAt(i) >= 65) && (inp.charCodeAt(i) <= 90)){
-            pos = charlistUpperReverse.indexOf(inp.charAt(i));
-            output += charlistUpper[pos];
-        }else if(inp.charCodeAt(i) >= 97 && inp.charCodeAt(i) <= 122){ 
-            pos = charlistLowerReverse.indexOf(inp.charAt(i));
-            output += charlistLower[pos];
-
-        }else{
-            output += str.charAt(i);
+            output += inp.charAt(i);
 
         }
     
@@ -614,16 +588,12 @@ function AtBashDecrypt(inp){
 
 //Homophonic
 function homophonicEncrypt(plaintext){
-    let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-	let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N"];
-	let arr3 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    let arr4 = ['d', "x", "s", "f", "z", "e", "h", "c", "v", "i", "t", "p", "g", "a", "q", "l", "k", "j", "r", "u", "o", "w", "m", "y", "b", "n"];
+    let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "`", "~", "-", "=", "[", "]", "|", ";", "'", ",", ".", "/", "_", "+", "{", "}", ":", "<", ">", "?"];
+	let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N", 'd', "x", "s", "f", "z", "e", "h", "c", "v", "i", "t", "p", "g", "a", "q", "l", "k", "j", "r", "u", "o", "w", "m", "y", "b", "n", "5", "^", "!", "1", "(", "3", "8", "%", "2", "$", ")", "4", "9", "*", "&", "0", "6", "7", "@", "#", "+", "?", "'", "~", "`", "-", "]", "{", "=", "_", "[", "}", "|", "<", ">", ".", "/", ",", ":", ";"];
     let ciphertext = "";
     for(let i=0; i < plaintext.length; i++){
-        if(plaintext.charCodeAt(i) >= 65 && plaintext.charCodeAt(i) <= 90){
+        if(arr1.indexOf(plaintext.charAt(i)) != -1){
             ciphertext += arr2[arr1.indexOf(plaintext.charAt(i))];
-        }else if(plaintext.charCodeAt(i) >= 97 && plaintext.charCodeAt(i) <= 122){
-            ciphertext += arr4[arr3.indexOf(plaintext.charAt(i))];
         }else{
             ciphertext += plaintext.charAt(i);
         }
@@ -632,26 +602,25 @@ function homophonicEncrypt(plaintext){
 }
 
 function homophonicDecrypt(ciphertext){
-	let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-	let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N"];
-	let arr3 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    let arr4 = ['d', "x", "s", "f", "z", "e", "h", "c", "v", "i", "t", "p", "g", "a", "q", "l", "k", "j", "r", "u", "o", "w", "m", "y", "b", "n"];
+    let arr1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "`", "~", "-", "=", "[", "]", "|", ";", "'", ",", ".", "/", "_", "+", "{", "}", ":", "<", ">", "?"];
+	let arr2 = ["D", "X", "S", "F", "Z", "E", "H", "C", "V", "I", "T", "P", "G", "A", "Q", "L", "K", "J", "R", "U", "O", "W", "M", "Y", "B", "N", 'd', "x", "s", "f", "z", "e", "h", "c", "v", "i", "t", "p", "g", "a", "q", "l", "k", "j", "r", "u", "o", "w", "m", "y", "b", "n", "5", "^", "!", "1", "(", "3", "8", "%", "2", "$", ")", "4", "9", "*", "&", "0", "6", "7", "@", "#", "+", "?", "'", "~", "`", "-", "]", "{", "=", "_", "[", "}", "|", "<", ">", ".", "/", ",", ":", ";"];
     let plaintext= "";
     for(let i=0; i < ciphertext.length; i++){
-        if(ciphertext.charCodeAt(i) >= 65 && ciphertext.charCodeAt(i) <= 90){
-            plaintext += arr1[arr2.indexOf(ciphertext.charAt(i))];
-        }else if(ciphertext.charCodeAt(i) >= 97 && ciphertext.charCodeAt(i) <= 122){
-            plaintext += arr3[arr4.indexOf(ciphertext.charAt(i))];
-        }else{
-            plaintext += ciphertext.charAt(i);
-        }
+		if(arr1.indexOf(ciphertext.charAt(i)) != -1){
+			plaintext += arr1[arr2.indexOf(ciphertext.charAt(i))];
+		}else{
+			plaintext += ciphertext.charAt(i);
+		}
+       
     }   
+	console.log()
     return plaintext;
 }
 
 
 // AES
 function aesEncrypt(message, key){
+	console.log(message);
 	let enstr = "";
     let encrypted = CryptoJS.AES.encrypt(message, key);
     enstr = enstr + encrypted;
@@ -690,7 +659,7 @@ function rc4Encryption(key, str) {
 	return string;
 }
 
-//no work
+
 var shuffledArr;
 let alphabetArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -715,7 +684,6 @@ function monoEncrypt(textArr){
 shuffledArr = shuffle(alphabetArr);
 console.log(shuffledArr.join().replace(/,/g, ''));
 textArr = textArr.split("");
-//var textArr = document.getElementById("textbox").value.split("");
 for(let k=0; k<textArr.length; k++){
 if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
 continue;
@@ -724,12 +692,15 @@ continue;
     else
         textArr[k]=shuffledArr[alphabetArr.indexOf(textArr[k].toUpperCase())];
 	}
+document.getElementById("key").value = shuffledArr.join().replace(/,/g, '');
 return textArr.join().replace(/,/g, '');
 }
 	
 	
-function monoDecrypt(textArr){
-//var textArr = document.getElementById("result").value.split("");
+function monoDecrypt(textArr, key){
+if(key != ""){
+	shuffledArr = key;
+}
 textArr = textArr.split("");
 for(let k=0; k<textArr.length;k++){
 if ((textArr[k] == ' ') || (textArr[k] == '\t') || (textArr[k] == '\n' || alphabetArr.indexOf(textArr[k].toUpperCase())==-1)){
@@ -747,7 +718,7 @@ function main(){
 		if(eod == "encrypt"){
 			document.getElementById("encrypted1").innerHTML = monoEncrypt(inputPlaintext);
 		}else if(eod == "decrypt"){
-			document.getElementById("decrypted1").innerHTML = monoDecrypt(inputPlaintext);
+			document.getElementById("decrypted1").innerHTML = monoDecrypt(inputPlaintext, inputKey);
 		}
 	}
 	if(selected == "caesar"){
@@ -867,7 +838,7 @@ function main(){
 		if(eod == "encrypt"){
 			document.getElementById("encrypted1").innerHTML = AtBash(inputPlaintext);
 		}else if(eod == "decrypt"){
-			document.getElementById("decrypted1").innerHTML = AtBashDecrypt(inputPlaintext);
+			document.getElementById("decrypted1").innerHTML = AtBash(inputPlaintext);
 		}
 	}
 	if(selected == "homophonic"){
