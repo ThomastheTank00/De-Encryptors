@@ -5,13 +5,38 @@ Wil Gray
 Daniel Cornett
 
 website.html
-Is the main webpage that allows the user to input text as well as a key to encrypt and decrypt. The user can also chose how encrypt and ecrypt their text by chosing between 6 diffenrt ciphers that can picked using radio buttons Once a user has inputed their text, key if necessary, and choosen the cipher they can choose to encrypt or decrypt by clicking on the corresponding buttons. Once one of those buttons are clicked and the process is complete, the output is displayed in a corresponding box.
+The main webpage allows the user to input text as well as a key to encrypt and decrypt. The user can also chose how encrypt and encrypt their text by choosing between 6 different ciphers that can picked using radio buttons. Once a user has inputted their text, key if necessary, and chosen the cipher they can choose to encrypt or decrypt by clicking on the corresponding buttons. Once one of those buttons are clicked a progress bar starts that once complete the output is displayed in a corresponding box. There is also a help section that can be access through the help button that describes what each cipher does and what each can take in as input to be encrypted or decrypted in case the user is unsure which cipher to use.
 
-style.css (added after demonstarion)
-aligns text to the center
-bolds the labes of the web page
-increases font-size of labes
-bolds buttons of the webpage
+style.css 
+Body
+Aligns text to the center
+Background-color is changed to alice blue 
+Div
+Adds 1px solid black border
+Changes font-size to large
+Label
+Bolds the labels of the web page
+Increases font-size of labels
+Button
+Bolds buttons of the webpage 
+#Label
+Selects elements with id of "Label"
+Bolds font and increases font size
+#myProgress
+Selects elements with id of "myProgress"
+Sets width and changes background color
+#myBar
+Selects elements with id of "myBar"
+Sets width, height, as well as background color
+#encrypted1
+Selects elements with id of "encrypted1"
+Sets display: none in order to hide the results
+Creates a solid black border of 1px
+#decrypted1
+Selects elements with id of "decrypted1"
+Sets display: none in order to hide the results
+Creates a solid black border of 1px
+
 
 script.js 
 contains the following functions and runs one of the them depending upon the radio button choosena dn whether the Encrypt or Decrypt button is clicked on
@@ -112,7 +137,7 @@ this reads the strings length and uses hte encryption key made earlier of 256 by
 
 ----------------------------------------------------------------------------------------------------
 
-AES (fixed after demnostartion) 
+AES 
 function aesEncrypt(message, key)
 intializes variable enstr with an empty string
 intializes encrypted variable and takes the message and key inputs of the function and runs them through the CryptoJS to encrypt
@@ -129,15 +154,64 @@ returns variable enstr
 ----------------------------------------------------------------------------------------------------
 
 AtBash
-function atBash(inputString)
 Loops through the input string checking whether or not it is a capital letter or not inversing the character in the alphabet ao a becomes z and z becomes a returning a string.
+function atBash(inp)
+Initializes variable arr1 set equal to an array full of characters and numbers
+Initializes variable arr2 set equal to a reverse array of arr1  
+Initializes variable output set equal to an empty string
+for(let i = 0; i < inp.length; i++)
+if(arr1.indexOf(inp.charAt(i) != -1))
+Initializes variable pos setting equal to arr1.indexOf(inp.charAt(i))
+Output is set equal to itself plus arr2[pos]
+Else
+Output is set it equal to itself plus inp.charAt(i)
+Returns variable output
 
 
 ----------------------------------------------------------------------------------------------------
 
 ROT Cipher
-ROT(inputString)
 Takes a string input and moves each character up x times through the alphabet depending on the number of rot given by the user.
+function ROT#(inputString)
+Intializes variable string setting equal to an empty string
+for(let i=0; i < str.length; i++)
+if(((str.charCodeAt(i) >= #) && (str.charCodeAt(i) <= #)) || ((str.charCodeAt(i) >= 65) && (str.charCodeAt(i) <= #)))
+Variable string is set equal to itself plus String.fromCharCode(str.charCodeAt(i) + #)
+else if (((str.charCodeAt(i) >= #) && (str.charCodeAt(i) <= #)) || ((str.charCodeAt(i) >= #) && (str.charCodeAt(i) <= #)))
+Variable string is set equal to itself plus string += String.fromCharCode(str.charCodeAt(i) - #)
+Else
+Variable string is set equal to itself plus str.charAt(i)
+Returns variable string
+
+
+----------------------------------------------------------------------------------------------------
+
+windod.addEventListener()
+Each event listener is used to check what button the user clicked whether that be the help button or either encrypt or decrypt buttons, the cipher selected, the eod variable is set equal to a value based on which button was clicked, the Caesar number, a key, the user inputted message, and then calls the main function to run
+
+
+----------------------------------------------------------------------------------------------------
+
+function progressBar()
+Displays element with id myBar
+Initializes variable i to 0
+If i == 0
+Variable is set to equal 1
+Initializes variable elem to equal the element with id myBar
+Initializes variable width to equal 1
+Initializes variable id to equal setInterval(frame, 10)
+function frame()
+If width is >= 100
+clearInterval(id)
+Variable i is set equal to 0
+else
+Iterate variable with +1
+elem.style.width is set equal to variable width
+if eod == “encrypt”
+Display element with id encrypted1
+else
+Display element with id denrypted1
+
 
 ----------------------------------------------------------------------------------------------------
 
